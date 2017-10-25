@@ -300,3 +300,204 @@ With the three double-quotes.
 We'll be able to type as much as we like.
 Even 4 lines if we want, or 5, or 6.
 ```
+
+### Exercise 10: What Was That?
+```python
+tabby_cat = "\tI'm tabbed in."
+persian_cat = "I'm split\non a line."
+backslash_cat = "I'm \\ a \\ cat."
+
+fat_cat = """
+I'll do a list:
+\t* Cat food
+\t* Fishies
+\t* Catnip\n\t* Grass
+"""
+
+print(tabby_cat)
+print(persian_cat)
+print(backslash_cat)
+print(fat_cat)
+```
+```
+        I'm tabbed in.
+I'm split
+on a line.
+I'm \ a \ cat.
+
+I'll do a list:
+        * Cat food
+        * Fishies
+        * Catnip
+        * Grass
+```
+
+### Exercise 11: Asking Questions
+```python
+print('How old are you?', end=' ')
+age = input()
+print('How tall are you?', end=' ')
+height = input()
+print('How much do you weigh?', end=' ')
+weight = input()
+
+print('So, you are %r old, %r tall and %r heavy.' % (age, height, weight))
+```
+```
+How old are you? 38
+How tall are you? 6'2"
+How much do you weigh? 180lb
+So, you are '38' old, '6\'2"' tall and '180lbs' heavy.
+```
+
+### Exercise 12: Prompting People
+```python
+age = input('How old are you? ')
+height = input('How tall are you? ')
+weight = input('How much do you weigh? ')
+
+print('So, you are %r old, %r tall and %r height' % (age, height, weight))
+```
+```
+How old are you? 38
+How tall are you? 6'2"
+How much do you weigh? 180lbs
+So, you are '38' old, '6\'2"' tall and '180lbs' height
+```
+
+### Exercise 13: Parameters, Unpacking, Variables
+```python
+import sys
+
+script, first, second, third = sys.argv
+
+print('The script is called:', script)
+print('Your first variable is:', first)
+print('Your second variable is:', second)
+print('Your third variable is:', third)
+```
+```
+$ python <filename>.py first 2nd 3rd
+The script is called: <filename>.py
+Your first variable is: first
+Your second variable is: 2nd
+Your third variable is: 3rd
+```
+
+### Exercise 14: Prompting and Passing
+```python
+from sys import argv
+
+script, user_name = argv
+prompt = '> '
+
+print("Hi %s, I'm the %s script." % (user_name, script))
+print("I'd like to ask you a few questions.")
+print("Do you like me %s?" % user_name)
+likes = input(prompt)
+
+print("Where do you live %s?" % user_name)
+lives = input(prompt)
+
+print("What kind of computer do you have?")
+computer = input(prompt)
+
+print("""
+Alright, so you said %r about liking me.
+You live in %r.  Not sure where that is.
+And you have a %r computer.  Nice.
+""" % (likes, lives, computer))
+```
+```
+$ Hi near, I'm the <filename>.py script.
+$ I'd like to ask you a few questions.
+$ Do you like me near?
+$ > Yes
+$ Where do you live near?
+$ > LA
+$ What kind of computer do you have?
+$ > quantum
+
+Alright, so you said 'Yes' about liking me.
+You live in 'LA'.  Not sure where that is.
+And you have a 'quantum' computer.  Nice.
+```
+
+### Exercise 15: Reading Files
+```python
+from sys import argv
+
+script, filename = argv
+
+txt = open(filename)
+
+print("Here's your file %r: " % filename)
+print(txt.read())
+
+print("Type the filename again:")
+file_again = input('> ')
+
+txt_again = open(file_again)
+
+print(txt_again.read())
+```
+```
+$ python <filename>.py Exe15_sample.txt
+Here's your file 'Exe15_sample.txt': 
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+
+Type the filename again:
+> Exe15_sample.txt
+This is stuff I typed into a file.
+It is really cool stuff.
+Lots and lots of fun to have in here.
+```
+
+### Exercise 16: Reading and Writing Files
+```python
+from sys import argv
+
+script, filename = argv
+
+print('We are going to erase %r.' % filename)
+print('If you dont want that, hit CTRL-C (^C).')
+print('If you do want that, hit RETURN')
+
+input('? ')
+
+print('Opening the file...')
+target = open(filename, 'w')
+
+print('Truncating the file. Goodbye!')
+target.truncate()
+
+print('Now, Im going to ask you for three lines')
+
+line1 = input('line 1: ')
+line2 = input('line 2: ')
+line3 = input('line 3: ')
+
+print('Im going to write these to the file.')
+
+target.write(line1)
+target.write('\n')
+target.write(line2)
+target.write('\n')
+target.write(line3)
+target.write('\n')
+```
+```
+We are going to erase 'test.txt'.
+If you dont want that, hit CTRL-C (^C).
+If you do want that, hit RETURN
+? 
+Opening the file...
+Truncating the file. Goodbye!
+Now, Im going to ask you for three lines
+line 1: Mary had a little lamb
+line 2: It's fleece was white as snow
+line 3: It was also tasty
+Im going to write these to the file.
+```
