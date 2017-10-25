@@ -15,14 +15,14 @@ txt_again = open(file_again)
 print(txt_again.read())
 
 # --Output--
-# $ python <filename>.py Exe15_sample.txt
-# Here's your file 'Exe15_sample.txt': 
+# $ python <filename>.py test15.txt
+# Here's your file 'test15.txt': 
 # This is stuff I typed into a file.
 # It is really cool stuff.
 # Lots and lots of fun to have in here.
 
 # Type the filename again:
-# > Exe15_sample.txt
+# > test15.txt
 # This is stuff I typed into a file.
 # It is really cool stuff.
 # Lots and lots of fun to have in here.

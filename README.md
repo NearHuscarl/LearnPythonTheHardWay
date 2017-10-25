@@ -502,3 +502,221 @@ line 2: It's fleece was white as snow
 line 3: It was also tasty
 Im going to write these to the file.
 ```
+
+### Exercise 17: More Files
+```python
+from sys import argv
+from os.path import exists
+
+script, from_file, to_file = argv
+
+print('Copy from %s to %s' % (from_file, to_file))
+
+# we could do these two on one line too, how?
+in_file = open(from_file)
+indata = in_file.read()
+
+print('The input file is %d bytes long' % len(indata))
+
+print('Does the output file exist? %r' % exists(to_file))
+print('Ready, hit RETURN to continue, CTRL-C to abort.')
+input()
+
+out_file = open(to_file, 'w')
+out_file.write(indata)
+
+print('All right, all done.')
+
+out_file.close()
+in_file.close()
+```
+```
+--Output--
+$ python <filename>.py test17_from.txt test17_to.txt
+Copy from test17_from.txt to test17_to.txt
+The input file is 21 bytes long
+Does the output file exist? True
+Ready, hit RETURN to continue, CTRL-C to abort.
+
+All right, all done.
+```
+
+### Exercise 18: Names, Variables, Code, Functions
+```python
+# this one is like your script with argv
+def print_two(*args):
+    arg1, arg2 = args
+    print('arg1: %r, arg2: %r' % (arg1, arg2))
+
+# ok, that *args is actually pointless, we can just do this
+def print_two_again(arg1, arg2):
+    print('arg1: %r, arg2: %r' % (arg1, arg2))
+
+# this just takes one argument
+def print_one(arg1):
+    print('arg1: %r' % arg1)
+
+# this one takes no argument
+def print_none():
+    print("I got nothin'.")
+
+print_two('Zed', 'Shaw')
+print_two_again('Zed', 'Shaw')
+print_one('First!')
+print_none()
+```
+```
+arg1: 'Zed', arg2: 'Shaw'
+arg1: 'Zed', arg2: 'Shaw'
+arg1: 'First!'
+I got nothin'.
+```
+
+### Exercise 19: Functions and Variables
+```python
+def cheese_and_crackers(cheese_count, boxes_of_crackers):
+    print('You have %d cheeses!' % cheese_count)
+    print('You have %d boxes of crackers!' % boxes_of_crackers)
+    print("Man that's enough for a party!")
+    print('Get a blanket.\n')
+
+
+print("We can just give the function numbers directly:")
+cheese_and_crackers(20, 30)
+
+print("OR, we can use variables from our script:")
+amount_of_cheese = 10
+amount_of_crackers = 50
+cheese_and_crackers(amount_of_cheese, amount_of_crackers)
+
+print("We can even do math inside too:")
+cheese_and_crackers(10 + 20, 5 + 6)
+
+print("And we can combine the two, variables and math:")
+cheese_and_crackers(amount_of_cheese + 100, amount_of_crackers + 1000)
+```
+```
+We can just give the function numbers directly:
+You have 20 cheeses!
+You have 30 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+
+OR, we can use variables from our script:
+You have 10 cheeses!
+You have 50 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+
+We can even do math inside too:
+You have 30 cheeses!
+You have 11 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+
+And we can combine the two, variables and math:
+You have 110 cheeses!
+You have 1050 boxes of crackers!
+Man that's enough for a party!
+Get a blanket.
+```
+
+### Exercise 20: Functions and Files
+```python
+from sys import argv
+
+script, input_file = argv
+
+def print_all(f):
+    print(f.read())
+
+def rewind(f):
+    f.seek(0)
+
+def print_a_line(line_count, f):
+    print(line_count, f.readline())
+
+current_file = open(input_file)
+
+print('First lets print the whole file:\n')
+print_all(current_file)
+
+print('Now lets rewind, kind of like a tape.')
+rewind(current_file)
+
+print('Lets print three lines:')
+
+current_line = 1
+print_a_line(current_line, current_file)
+
+current_line = current_line + 1
+print_a_line(current_line, current_file)
+
+current_line = current_line + 1
+print_a_line(current_line, current_file)
+```
+```
+$ python <filename>.py test20.txt
+First lets print the whole file:
+
+This is line 1
+This is line 2
+This is line 3
+
+Now lets rewind, kind of like a tape.
+Lets print three lines:
+1 This is line 1
+
+2 This is line 2
+
+3 This is line 3
+```
+
+### Exercise 21: Functions Can Return Something
+```python
+def add(a, b):
+    print("ADDING %d + %d" % (a, b))
+    return a + b
+
+def subtract(a, b):
+    print("SUBTRACTING %d - %d" % (a, b))
+    return a - b
+
+def multiply(a, b):
+    print("MULTIPLYING %d * %d" % (a, b))
+    return a * b
+
+def divide(a, b):
+    print("DIVIDING %d / %d" % (a, b))
+    return a / b
+
+print("Let's do some math with just functions!")
+
+age = add(30, 5)
+height = subtract(78, 4)
+weight = multiply(90, 2)
+iq = divide(100, 2)
+
+print("Age: %d, Height: %d, Weight: %d, IQ: %d" % (age, height, weight, iq))
+
+# A puzzle for the extra credit, type it in anyway.
+print("Here is a puzzle.")
+
+what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
+
+print("That becomes: ", what, "Can you do it by hand?")
+```
+```
+Let's do some math with just functions!
+ADDING 30 + 5
+SUBTRACTING 78 - 4
+MULTIPLYING 90 * 2
+DIVIDING 100 / 2
+Age: 35, Height: 74, Weight: 180, IQ: 50
+Here is a puzzle.
+DIVIDING 50 / 2
+MULTIPLYING 180 * 25
+SUBTRACTING 74 - 4500
+ADDING 35 + -4426
+That becomes:  -4391.0 Can you do it by hand?
+```
