@@ -17,3 +17,15 @@ print ("His teeth are usually %s depending on the coffee." % my_teeth)
 # this line is tricky, try to get it exactly right
 print ("If I add %d, %d, and %d I get %d." % (my_age, my_height, my_weight, my_age + my_height + my_weight))
 print ("Btw here is a floating point: %f." % a_random_floating_point)
+print ("Btw here is a floating point: %r" % "haha")
+
+# --Output--
+# Let's talk about Zed A. Shaw.
+# He's 74 inches tall.
+# He's 180 pounds heavy.
+# Actually that's not too heavy.
+# He's got Blue eyes and Brown hair.
+# His teeth are usually White depending on the coffee.
+# If I add 35, 74, and 180 I get 289.
+# Btw here is a floating point: 3.000000.
+# Btw here is a floating point: 'haha'
