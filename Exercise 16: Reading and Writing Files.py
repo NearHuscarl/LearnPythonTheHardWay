@@ -30,6 +30,7 @@ target.write(line3)
 target.write('\n')
 
 # --Output--
+# $ python <filename>.py test.txt
 # We are going to erase 'test.txt'.
 # If you dont want that, hit CTRL-C (^C).
 # If you do want that, hit RETURN
