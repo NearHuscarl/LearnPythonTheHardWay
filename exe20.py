@@ -31,7 +31,7 @@ current_line = current_line + 1
 print_a_line(current_line, current_file)
 
 # --Output--
-# $ python <filename>.py test20.txt
+# $ python exe20.py test20.txt
 # First lets print the whole file:
 
 # This is line 1

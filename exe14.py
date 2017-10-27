@@ -21,7 +21,7 @@ And you have a %r computer.  Nice.
 """ % (likes, lives, computer))
 
 # --Output--
-# $ Hi near, I'm the <filename>.py script.
+# $ Hi near, I'm the exe14.py script.
 # $ I'd like to ask you a few questions.
 # $ Do you like me near?
 # $ > Yes

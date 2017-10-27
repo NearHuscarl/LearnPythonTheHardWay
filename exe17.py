@@ -24,7 +24,7 @@ out_file.close()
 in_file.close()
 
 # --Output--
-# $ python <filename>.py test17_from.txt test17_to.txt
+# $ python exe17.py test17_from.txt test17_to.txt
 # Copy from test17_from.txt to test17_to.txt
 # The input file is 21 bytes long
 # Does the output file exist? True

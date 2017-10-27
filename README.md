@@ -377,8 +377,8 @@ print('Your second variable is:', second)
 print('Your third variable is:', third)
 ```
 ```
-$ python <filename>.py first 2nd 3rd
-The script is called: <filename>.py
+$ python exe13.py first 2nd 3rd
+The script is called: exe13.py
 Your first variable is: first
 Your second variable is: 2nd
 Your third variable is: 3rd
@@ -409,7 +409,7 @@ And you have a %r computer.  Nice.
 """ % (likes, lives, computer))
 ```
 ```
-$ Hi near, I'm the <filename>.py script.
+$ Hi near, I'm the exe14.py script.
 $ I'd like to ask you a few questions.
 $ Do you like me near?
 $ > Yes
@@ -442,8 +442,8 @@ txt_again = open(file_again)
 print(txt_again.read())
 ```
 ```
-$ python <filename>.py Exe15_sample.txt
-Here's your file 'Exe15_sample.txt': 
+$ python exe15.py test15.txt
+Here's your file 'test15.txt': 
 This is stuff I typed into a file.
 It is really cool stuff.
 Lots and lots of fun to have in here.
@@ -489,7 +489,7 @@ target.write(line3)
 target.write('\n')
 ```
 ```
-$ python <filename>.py test.txt
+$ python exe16.py test.txt
 We are going to erase 'test.txt'.
 If you dont want that, hit CTRL-C (^C).
 If you do want that, hit RETURN
@@ -532,7 +532,7 @@ in_file.close()
 ```
 ```
 --Output--
-$ python <filename>.py test17_from.txt test17_to.txt
+$ python exe17.py test17_from.txt test17_to.txt
 Copy from test17_from.txt to test17_to.txt
 The input file is 21 bytes long
 Does the output file exist? True
@@ -656,7 +656,7 @@ current_line = current_line + 1
 print_a_line(current_line, current_file)
 ```
 ```
-$ python <filename>.py test20.txt
+$ python exe20.py test20.txt
 First lets print the whole file:
 
 This is line 1
@@ -720,3 +720,59 @@ SUBTRACTING 74 - 4500
 ADDING 35 + -4426
 That becomes:  -4391.0 Can you do it by hand?
 ```
+
+### Exercise 24: More Practice
+```python
+print('Lets practice everything.')
+print('You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs.')
+
+poem = """
+\tThe lovely world
+with logic so firmly planted
+cannot discern \n the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+\n\t\twhere there is none.
+"""
+
+print("--------------")
+print(poem)
+print("--------------")
+
+five = 10 - 2 + 3 - 6
+print('This should be five: %s' % five)
+
+def secret_formula(started):
+    jelly_beans = started * 500
+    jars = jelly_beans / 1000
+    crates = jars / 100
+    return jelly_beans, jars, crates
+
+start_point = 10000
+beans, jars, crates = secret_formula(start_point)
+
+print('With a starting point of: %d' % start_point)
+print("We'd would have %d beans, %d jars and %d crates." % secret_formula(start_point))
+```
+```
+Lets practice everything.
+You'd need to know 'bout escapes with \ that do 
+ newlines and 	 tabs.
+--------------
+
+	The lovely world
+with logic so firmly planted
+cannot discern 
+ the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+
+		where there is none.
+
+--------------
+This should be five: 5
+With a starting point of: 10000
+We'd would have 5000000 beans, 5000 jars and 50 crates.
+```
+
+###

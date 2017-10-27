@@ -15,7 +15,7 @@ txt_again = open(file_again)
 print(txt_again.read())
 
 # --Output--
-# $ python <filename>.py test15.txt
+# $ python exe15.py test15.txt
 # Here's your file 'test15.txt': 
 # This is stuff I typed into a file.
 # It is really cool stuff.
