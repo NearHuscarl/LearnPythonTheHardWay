@@ -1115,7 +1115,7 @@ False
 False
 ```
 
-### What If
+### Exercise 29: What If
 ```python
 people = 20
 cats = 30
@@ -1152,7 +1152,7 @@ People are less than or equal to dogs
 People are dogs.
 ```
 
-### Else and If
+### Exercise 30: Else and If
 ```python
 people = 30
 cars = 40
@@ -1183,7 +1183,7 @@ Maybe we could take the buses.
 Alright, let's just take the buses.
 ```
 
-### Making Decisions
+### Exercise 31: Making Decisions
 ```python
 print('You enter a dark room with two doors. Do you go through door #1 or door #2?')
 
