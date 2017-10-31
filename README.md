@@ -1228,3 +1228,114 @@ There is a giant bear here eating a cheese cake. What do you do?
 > 2
 The bear eats your leg off. Good job!
 ```
+
+### Exercise 32: Loops and Lists
+```python
+hairs = ['brown', 'blond', 'red']
+eyes = ['brown', 'blue', 'green']
+weights = [1, 2, 3, 4]
+
+the_count = [1, 2, 3, 4, 5]
+fruits = ['apples', 'oranges', 'pears', 'apricots']
+change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
+
+# this first kind of for-loop goes through a list
+for number in the_count:
+    print('This is count %d' % number)
+
+# same as above
+for fruit in fruits:
+    print('A fruit of type: %s' % fruit)
+
+# also we can go through mixed lists too
+# notice we have to use %r since we don't know what's in it
+for i in change:
+    print('I got %r' % i)
+
+# we can also build list, first start with an empty one
+elements = []
+
+# then use the range function to do 0 to 5 counts
+for i in range(0, 6):
+    print('Adding %d to the list.' % i)
+    # append is a function that lists understand
+    elements.append(i)
+
+for i in elements:
+    print('Element was: %d' % i)
+```
+```
+This is count 1
+This is count 2
+This is count 3
+This is count 4
+This is count 5
+A fruit of type: apples
+A fruit of type: oranges
+A fruit of type: pears
+A fruit of type: apricots
+I got 1
+I got 'pennies'
+I got 2
+I got 'dimes'
+I got 3
+I got 'quarters'
+Adding 0 to the list.
+Adding 1 to the list.
+Adding 2 to the list.
+Adding 3 to the list.
+Adding 4 to the list.
+Adding 5 to the list.
+Element was: 0
+Element was: 1
+Element was: 2
+Element was: 3
+Element was: 4
+Element was: 5
+```
+
+### Exercise 33: While Loops
+```python
+i = 0
+numbers = []
+
+while i < 6:
+    print('At the top i is %d' % i)
+    numbers.append(i)
+
+    i = i + 1
+    print('Numbers now: ', numbers)
+    print('At the bottom i is %d' % i)
+
+print('The numbers: ')
+
+for num in numbers:
+    print(num)
+```
+```
+At the top i is 0
+Numbers now:  [0]
+At the bottom i is 1
+At the top i is 1
+Numbers now:  [0, 1]
+At the bottom i is 2
+At the top i is 2
+Numbers now:  [0, 1, 2]
+At the bottom i is 3
+At the top i is 3
+Numbers now:  [0, 1, 2, 3]
+At the bottom i is 4
+At the top i is 4
+Numbers now:  [0, 1, 2, 3, 4]
+At the bottom i is 5
+At the top i is 5
+Numbers now:  [0, 1, 2, 3, 4, 5]
+At the bottom i is 6
+The numbers: 
+0
+1
+2
+3
+4
+5
+```
