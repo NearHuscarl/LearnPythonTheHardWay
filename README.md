@@ -1477,7 +1477,7 @@ Telephone#Light
 ```
 
 ### Exercise 39: Dictionaries, Oh Lovely Dictionaries
-```python```
+```python
 # create a mapping of state to abbreviation
 states = {
         'Oregon': 'OR',
@@ -1570,3 +1570,4 @@ Michigan state is abbreviated MI and has city Destroit
 ----------
 Sorry, no Texas.
 The city for the state "TX" is: Does Not Exist
+```
