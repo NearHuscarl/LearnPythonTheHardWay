@@ -1339,3 +1339,234 @@ The numbers:
 4
 5
 ```
+
+### Exercise 35: Branches and Functions
+```python
+from sys import exit
+
+def gold_room():
+    print('This room is full of gold. How much do you take?')
+
+    next = input('> ')
+    if '0' in next or '1' in next:
+        how_much = int(next)
+    else:
+        dead('Man, learn to type a number.')
+
+    if how_much < 50:
+        print('Nice, you\'re not greedy, you win!')
+        exit(0)
+    else:
+        dead('You greedy bastard!')
+
+def bear_room():
+    print('There is a bear here.')
+    print('The bear has a bunch of honey.')
+    print('The fat bear is in front of another door.')
+    print('How are you going to move the bear?')
+    bear_moved = False
+
+    while True:
+        next = input('> ')
+
+        if next == 'take honey':
+            dead('The bear looks at you then slaps your face off.')
+        elif next == 'taunt bear' and not bear_moved:
+            print('The bear has moved from the door. You can go through it now.')
+            bear_moved = True
+        elif next == 'taunt bear' and bear_moved:
+            dead('The bear gets pissed off and chews your leg off.')
+        elif next == 'open door' and bear_moved:
+            gold_room()
+        else:
+            print('I got no idea what that means.')
+
+def cthulhu_room():
+    print('Here you see the great evil Cthulhu.')
+    print('He, it, whatever stares at you and you go insane.')
+    print('Do you flee for your life or eat your head?')
+
+    next = input('> ')
+
+    if 'flee' in next:
+        start()
+    elif 'head' in next:
+        dead('Well that was tasty!')
+    else:
+        cthulhu_room()
+
+def dead(why):
+    print(why, 'Good job!')
+    exit(0)
+
+def start():
+    print('You are in a dark room.')
+    print('There is a door to your right and left.')
+    print('Which one do you take?')
+
+    next = input('> ')
+
+    if next == 'left':
+        bear_room()
+    elif next == 'right':
+        cthulhu_room()
+    else:
+        dead('You stumble around the room until you starve.')
+
+start()
+```
+```
+You are in a dark room.
+There is a door to your right and left.
+Which one do you take?
+> left
+There is a bear here.
+The bear has a bunch of honey.
+The fat bear is in front of another door.
+How are you going to move the bear?
+> taunt bear
+The bear has moved from the door. You can go through it now.
+> open door
+This room is full of gold. How much do you take?
+> 1000
+You greedy bastard! Good job!
+```
+
+### Exercise 38: Doing Things to Lists
+```python
+ten_things = 'Apples Oranges Crows Telephone Light Sugar'
+
+print('Wait there\'s is not 10 things in that list, let\'s fix that.')
+
+stuff = ten_things.split(' ')
+more_stuff = ['Day', 'Night', 'Song', 'Frisbee', 'Corn', 'Banana', 'Girl', 'Boy']
+
+while len(stuff) != 10:
+    next_one  = more_stuff.pop()
+    print('Adding: ', next_one)
+    stuff.append(next_one)
+    print('There is %d items now.' % len(stuff))
+
+print('There we go: ', stuff)
+
+print('Let\'s do something with stuff.')
+
+print(stuff[1])
+print(stuff[-1]) # whoa! fancy
+print(stuff.pop())
+print(' '.join(stuff)) # what? cool
+print('#'.join(stuff[3:5])) # super stellar!
+```
+```
+Wait there's is not 10 things in that list, let's fix that.
+Adding:  Boy
+There is 7 items now.
+Adding:  Girl
+There is 8 items now.
+Adding:  Banana
+There is 9 items now.
+Adding:  Corn
+There is 10 items now.
+There we go:  ['Apples', 'Oranges', 'Crows', 'Telephone', 'Light', 'Sugar', 'Boy', 'Girl', 'Banana', 'Corn']
+Let's do something with stuff.
+Oranges
+Corn
+Corn
+Apples Oranges Crows Telephone Light Sugar Boy Girl Banana
+Telephone#Light
+```
+
+### Exercise 39: Dictionaries, Oh Lovely Dictionaries
+```python```
+# create a mapping of state to abbreviation
+states = {
+        'Oregon': 'OR',
+        'Florida': 'FL',
+        'California': 'CA',
+        'New York': 'NY',
+        'Michigan': 'MI'
+        }
+
+# create a basic set of states and some cities in them
+cities = {
+        'CA': 'San Francisco',
+        'MI': 'Destroit',
+        'FL': 'Jacksonville'
+        }
+
+# add some more cities
+cities['NY'] = 'New York'
+cities['OR'] = 'Portland'
+
+# print out some cities
+print('-' * 10)
+print('NY State has: ', cities['NY'])
+print('OR State has: ', cities['OR'])
+
+# print some states
+print('-' * 10)
+print('Michigan\'s abbreviation is: ', states['Michigan'])
+print('Florida\'s abbreviation is: ', states['Florida'])
+
+# do it by using the state then cities dict
+print('-' * 10)
+print('Michigan has ', cities[states['Michigan']])
+print('Florida has ', cities[states['Florida']])
+
+# print every state abbreviation
+print('-' * 10)
+for state, abbrev in states.items():
+    print('%s is abbreviated %s' % (state, abbrev))
+
+# print every city in state
+print('-' * 10)
+for abbrev, city in cities.items():
+    print('%s has the city %s' % (abbrev, city))
+
+# now do both at the same time
+print('-' * 10)
+for state, abbrev in states.items():
+    print('%s state is abbreviated %s and has city %s' % (state, abbrev, cities[abbrev]))
+
+print('-' * 10)
+# safely get a abbreviation by state that might not be there
+state = states.get('Texas', None)
+
+if not state:
+    print('Sorry, no Texas.')
+
+# get a city with a default value
+city = cities.get('TX', 'Does Not Exist')
+print('The city for the state "TX" is: %s' % city)
+```
+```
+----------
+NY State has:  New York
+OR State has:  Portland
+----------
+Michigan's abbreviation is:  MI
+Florida's abbreviation is:  FL
+----------
+Michigan has  Destroit
+Florida has  Jacksonville
+----------
+Oregon is abbreviated OR
+Florida is abbreviated FL
+California is abbreviated CA
+New York is abbreviated NY
+Michigan is abbreviated MI
+----------
+CA has the city San Francisco
+MI has the city Destroit
+FL has the city Jacksonville
+NY has the city New York
+OR has the city Portland
+----------
+Oregon state is abbreviated OR and has city Portland
+Florida state is abbreviated FL and has city Jacksonville
+California state is abbreviated CA and has city San Francisco
+New York state is abbreviated NY and has city New York
+Michigan state is abbreviated MI and has city Destroit
+----------
+Sorry, no Texas.
+The city for the state "TX" is: Does Not Exist
