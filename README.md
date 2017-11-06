@@ -1859,12 +1859,12 @@ harry = Halibut()
 #### 3. Create a class hierarchy and object map for the concepts.
 ---
 * Map
-  [ ] next_scene
-  [ ] opening_scene
+  * **next_scene**
+  * **opening_scene**
 * Engine
-  [ ] play
+  * **play**
 * Scene
-  [ ] enter
+  * **enter**
   * Death
   * Central Corridor
   * Laser Weapon Armory
@@ -2132,4 +2132,29 @@ class Map(object):
 a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
+```
+```
+
+--------
+The Gothons of Planet Percal #25 have invaded your ship and destroyed
+your entire crew.  You are the last surviving member and your last
+mission is to get the neutron destruct bomb from the Weapons Armory,
+put it in the bridge, and blow the ship up after getting into an 
+escape pod.
+
+
+You're running down the central corridor to the Weapons Armory when
+a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown costume
+flowing around his hate filled body.  He's blocking the door to the
+Armory and about to pull a weapon to blast you.
+> dodge!
+Like a world class boxer you dodge, weave, slip and slide right
+as the Gothon's blaster cranks a laser past your head.
+In the middle of your artful dodge your foot slips and you
+bang your head on the metal wall and pass out.
+You wake up shortly after only to die as the Gothon stomps on
+your head and eats you.
+
+--------
+Your mom would be proud...if she were smarter.
 ```
